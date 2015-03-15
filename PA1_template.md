@@ -178,7 +178,7 @@ A. Same to the previous section, these are the following steps to reach this:
 ```r
 steps_interval <- aggregate(steps ~ interval, data = activity, FUN = mean)
 
-colnames(steps_interval) <- c("Interval", "AvrgStepsAcrossYrs")
+colnames(steps_interval) <- c("Interval", "AvrgStepsAcrossDays")
 ```
 
 
@@ -191,13 +191,13 @@ head(steps_interval)
 
 
     ```
-        Interval AvrgStepsAcrossYrs
-    ##1        0            1.71698
-    ##2        5            0.33962
-    ##3       10            0.13208
-    ##4       15            0.15094
-    ##5       20            0.07547
-    ##6       25            2.09434
+        Interval AvrgStepsAcrossDays
+    ##1        0             1.71698
+    ##2        5             0.33962
+    ##3       10             0.13208
+    ##4       15             0.15094
+    ##5       20             0.07547
+    ##6       25             2.09434
 
     ```
 
@@ -208,9 +208,9 @@ C. Now we can create a Time-Series plot from the above dataset:
 with(steps_interval, {
     plot(
       x=Interval,
-      y=AvrgStepsAcrossYrs,
+      y=AvrgStepsAcrossDays,
       type="l",
-      main="Time-Series of Interfal and Average Steps Across Years",
+      main="Time-Series of Interfal and Average Steps Across Days",
       xlab="5 Minute Interval",
       ylab="Average Steps and Average Across All Days"
       )
@@ -226,12 +226,12 @@ with(steps_interval, {
 
 
 ```r
-intervalMax <- steps_interval[steps_interval$AvrgStepsAcrossYrs==max(steps_interval$AvrgStepsAcrossYrs),]
+intervalMax <- steps_interval[steps_interval$AvrgStepsAcrossDays==max(steps_interval$AvrgStepsAcrossDays),]
 ```
 
       ```
-            Interval AvrgStepsAcrossYrs
-      ##104      835              206.2
+            Interval AvrgStepsAcrossDays
+      ##104      835               206.2
       
       ```
 From the output above we can see that the interval between **835** and  **840** minutes has the maximum number of steps.
